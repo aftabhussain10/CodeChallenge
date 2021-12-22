@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import './app.css';
-import ReactImage from './react.png';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
 export default class JOB_DESC extends Component {
   state = { data: null, isLoaded: false };
 
@@ -30,13 +24,18 @@ export default class JOB_DESC extends Component {
   render() {
     const { data, isLoaded } = this.state;
     if (!isLoaded) {
-      // not loaded
       return (
         <div>Loading...</div>
       )
     }
-    console.log("DATA", data);
-    // const formatKeys = Object.entries(data).map((item, i) => ( item ));
+   const _res = Object.entries(data).map(([key, value]) => {
+      const obj = {
+        key: key,
+        value : value.replace(/:/g, "")
+      }
+      console.log(obj);
+      return obj;
+    });
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
@@ -50,24 +49,29 @@ export default class JOB_DESC extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Job.com
+              Better Leap
             </Typography>
           </Toolbar>
         </AppBar>
         <div style={{ padding: 20 }}>
-          <Grid container spacing={4}>
-            <Grid item xs={12}>
-            {Object.entries(data).map(([key, value]) => (
-                 <Card>
-                 <CardContent>
-                   <Typography color="text.secondary">
-                   <h2 key={key}>{key}: {value}</h2>
-                   </Typography>
-                 </CardContent>
-               </Card>
-              ))}     
-            </Grid>
-          </Grid>
+              {_res.map((object) => (
+                <Card sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent>
+                    <Typography variant="body2" component="div" variant="h6">
+                    {object.key}
+                    </Typography>
+                  </CardContent>
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent sx={{ flex: '1 0 auto' }}>
+                    <Typography variant ="body1" color="ThreeDDarkShadow">
+                    {object.value}
+                    </Typography>
+                  </CardContent>
+                </Box>
+              </Card>
+              ))}
         </div>
       </Box>
     );
