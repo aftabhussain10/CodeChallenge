@@ -4,7 +4,7 @@
 
 This is a boilerplate to build a full stack web application using React, Node.js, Express and Webpack. It is also configured with webpack-dev-server, eslint, prettier and babel.
 
-- [simple-react-full-stack](#simple-react-full-stack)
+- [simple-react-full-stack](#Code Challenge App)
   - [Introduction](#introduction)
     - [Development mode](#development-mode)
     - [Production mode](#production-mode)
@@ -39,10 +39,10 @@ In the production mode, we will have only 1 server running. All the client side 
 
 ```bash
 # Clone the repository
-git clone https://github.com/crsandeep/simple-react-full-stack
+git clone https://github.com/aftabhussain10/CodeChallenge.git
 
 # Go inside the directory
-cd simple-react-full-stack
+cd CodeChallenge
 
 # Install dependencies
 yarn (or npm install)
