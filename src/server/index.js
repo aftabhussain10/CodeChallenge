@@ -8,7 +8,7 @@ const app = express();
 
 // const fileData = ReadFile();
 app.use(express.static('dist'));
-app.get('/api/getUsername', async function(req, res, next) {
+app.get('/api/getJobDesc', async function(req, res, next) {
 
   // call the get on users and retrieve all data from that request
   try {

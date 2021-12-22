@@ -13,7 +13,7 @@ export default class JOB_DESC extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch('/api/getUsername');
+      const response = await fetch('/api/getJobDesc');
       const data = await response.json();
       this.setState({ data: data, isLoaded: true });
     } catch (e) {
